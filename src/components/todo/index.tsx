@@ -12,10 +12,8 @@ export const TodoCollection = () => {
 
   return (
     <div>
-      <div className="flex items-center gap-10 py-10 text-4xl">
-        <h1 className="w-fit text-clip bg-gradient-to-r from-red-400 via-emerald-400 to-sky-400 bg-clip-text text-transparent">
-          todo
-        </h1>
+      <div className="flex items-center gap-10 py-10">
+        <h1 className="w-fit text-4xl text-emerald-400">todo</h1>
 
         <AddTodo />
       </div>
@@ -47,6 +45,7 @@ export const AddTodo = () => {
         <Fieldset className="flex items-center gap-2">
           <Field>
             <Input
+              placeholder="making side project..."
               className={cn(
                 "block w-full rounded-lg border-none bg-white/5 px-3 py-1.5 text-sm/6 text-white",
                 "focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25",
@@ -55,7 +54,22 @@ export const AddTodo = () => {
               onChange={(e) => setTodo(e.target.value)}
             />
           </Field>
-          <Button type="submit">Add New Task</Button>
+          <Button type="submit">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 4.5v15m7.5-7.5h-15"
+              />
+            </svg>
+          </Button>
         </Fieldset>
       </form>
     </div>
