@@ -1,9 +1,11 @@
-import Counter from "./components/counter";
+import { TodoCollection } from "./components/todo";
+import { Speech } from "./components/web-speech";
 
 function App() {
   return (
     <>
-      <Counter />
+      <TodoCollection />
+      <Speech />
     </>
   );
 }
