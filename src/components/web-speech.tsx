@@ -1,4 +1,5 @@
 import React from "react";
+import { SpeakAndSpeech } from "./record-and-speech";
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -23,10 +24,20 @@ export const Speech = () => {
     recognition.start();
   }
   return (
-    <div className="">
-      <button onClick={handleRecord}>Record</button>
+    <div className="px-20 py-10">
+      <div className="space-y-1">
+        <button onClick={handleRecord}>Record</button>
+        <p>{text}</p>
+        <button onClick={() => speak("const tan tine")}>say my name</button>
+      </div>
 
-      <p>{text}</p>
+      <SpeakAndSpeech />
     </div>
   );
+};
+
+const speak = (text: string) => {
+  const utterance = new SpeechSynthesisUtterance(text);
+
+  window.speechSynthesis.speak(utterance);
 };
