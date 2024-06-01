@@ -31,17 +31,19 @@ export const AddTodo = () => {
   const [todo, setTodo] = useState("");
   const dispatch = useDispatch();
 
-  return (
-    <div className="">
-      <form
-        className="w-full max-w-md"
-        onSubmit={(e) => {
-          e.preventDefault();
-          dispatch(addTodo(todo));
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (todo.length <= 0) {
+      alert("Please enter a todo item before submitting.");
+    } else {
+      dispatch(addTodo(todo));
+      setTodo("");
+    }
+  };
 
-          setTodo("");
-        }}
-      >
+  return (
+    <div>
+      <form className="w-full max-w-md" onSubmit={handleSubmit}>
         <Fieldset className="flex items-center gap-2">
           <Field>
             <Input
